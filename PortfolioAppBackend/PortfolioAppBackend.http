@@ -1,0 +1,6 @@
+@PortfolioAppBackend_HostAddress = http://localhost:5282
+
+GET {{PortfolioAppBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
