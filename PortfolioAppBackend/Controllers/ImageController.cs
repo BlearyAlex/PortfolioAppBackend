@@ -99,13 +99,21 @@ namespace PortfolioAppBackend.Controllers
         [Route("Eliminar/{id:int}")]
         public async Task<ActionResult> DeleteImage(int id)
         {
-            var result = await _imageService.Delete(id);
-            if (result)
+            try
             {
-                return NoContent();
-            }
+                var result = await _imageService.Delete(id);
+                if (result)
+                {
+                    return Ok("Imagen eliminada");
+                }
 
-            return NotFound("No se encontró la imagen");
+                return NotFound("No se encontró la imagen");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

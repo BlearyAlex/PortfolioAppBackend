@@ -34,6 +34,8 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 #region Services
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IVideoService, VideoService>();
+builder.Services.AddScoped<IPostService, PostService>();
 // Token
 builder.Services.AddScoped<ITokenServicio, TokenServicio>();
 #endregion Services

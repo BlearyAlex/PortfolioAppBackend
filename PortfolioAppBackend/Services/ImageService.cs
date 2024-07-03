@@ -137,9 +137,9 @@ namespace PortfolioAppBackend.Services
                 imageExisting.Url = imageDto.Url ?? imageExisting.Url; // Mantener la URL existente si no se proporciona un nuevo archivo
 
                 // Actualizar la imagen en el repositorio
-                var successfulupdate = await _imageRepository.Editar(imageExisting);
+                var successUpdate = await _imageRepository.Editar(imageExisting);
 
-                return successfulupdate; // Retorna true si la actualización fue exitosa, de lo contrario false
+                return successUpdate; // Retorna true si la actualización fue exitosa, de lo contrario false
             }
             catch (Exception)
             {
@@ -157,12 +157,9 @@ namespace PortfolioAppBackend.Services
                 if (imageFound == null)
                     throw new Exception("La imagen no existe");
 
-                var result = await _imageRepository.Eliminar(imageFound);
+                var succesImage = await _imageRepository.Eliminar(imageFound);
 
-                if (!result)
-                    throw new Exception("Error al eliminar la imagen");
-
-                return result;
+                return succesImage;
             }
             catch (Exception ex)
             {

@@ -9,6 +9,8 @@ namespace PortfolioAppBackend.Utilitys
         public MapperProfile()
         {
             CreateMap<Image, ImageDTO>().ReverseMap();
+            CreateMap<Video, VideoDTO>().ReverseMap();
+            CreateMap<Post, PostDTO>().ReverseMap();
         }
     }
 }

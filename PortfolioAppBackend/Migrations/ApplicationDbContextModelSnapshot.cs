@@ -48,6 +48,34 @@ namespace PortfolioAppBackend.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("PortfolioAppBackend.Models.Post", b =>
+                {
+                    b.Property<int>("IdPost")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPost"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdPost");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("PortfolioAppBackend.Models.Usuario", b =>
                 {
                     b.Property<int>("idUsuario")
@@ -78,6 +106,34 @@ namespace PortfolioAppBackend.Migrations
                     b.HasKey("idUsuario");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("PortfolioAppBackend.Models.Video", b =>
+                {
+                    b.Property<int>("IdVideo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdVideo"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdVideo");
+
+                    b.ToTable("Videos");
                 });
 #pragma warning restore 612, 618
         }
